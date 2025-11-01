@@ -3,8 +3,6 @@
 import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 
-import "../app/tiptap.css";
-
 interface Props {
   content: any;
   onChange: (content: any) => void;

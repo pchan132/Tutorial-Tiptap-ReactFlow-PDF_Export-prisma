@@ -21,7 +21,8 @@
   margin: 0.5rem 0;
 }
 
-.ProseMirror ul, .ProseMirror ol {
+.ProseMirror ul,
+.ProseMirror ol {
   margin-left: 1.5rem;
   margin: 0.5rem 0;
 }
