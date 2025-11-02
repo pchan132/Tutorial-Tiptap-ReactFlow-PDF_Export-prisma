@@ -120,3 +120,100 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* PDF Export Styles */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  #pdf-content,
+  #pdf-content * {
+    visibility: visible;
+  }
+
+  #pdf-content {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+}
+
+/* PDF Content Styling */
+#pdf-content {
+  font-family: "Sarabun", "Arial", sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+#pdf-content h1 {
+  font-size: 24px;
+  margin-bottom: 16px;
+  color: #1a1a1a;
+}
+
+#pdf-content h2 {
+  font-size: 20px;
+  margin-top: 24px;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+#pdf-content p {
+  margin-bottom: 12px;
+  text-align: justify;
+}
+
+#pdf-content ul,
+#pdf-content ol {
+  margin-left: 20px;
+  margin-bottom: 12px;
+}
+
+#pdf-content blockquote {
+  border-left: 4px solid #ddd;
+  padding-left: 16px;
+  margin: 16px 0;
+  font-style: italic;
+  color: #666;
+}
+
+/* แก้ปัญหา Tailwind CSS 4 + html2canvas */
+.pdf-export-fix {
+  /* ใช้สีที่เรียบง่ายแทน oklch() และ lab() */
+  --background: #ffffff !important;
+  --foreground: #000000 !important;
+  --card: #ffffff !important;
+  --card-foreground: #000000 !important;
+  --popover: #ffffff !important;
+  --popover-foreground: #000000 !important;
+  --primary: #000000 !important;
+  --primary-foreground: #ffffff !important;
+  --secondary: #f3f4f6 !important;
+  --secondary-foreground: #000000 !important;
+  --muted: #f3f4f6 !important;
+  --muted-foreground: #6b7280 !important;
+  --accent: #f3f4f6 !important;
+  --accent-foreground: #000000 !important;
+  --destructive: #ef4444 !important;
+  --border: #d1d5db !important;
+  --input: #d1d5db !important;
+  --ring: #3b82f6 !important;
+}
+
+/* สำหรับ html2canvas */
+.pdf-export-fix * {
+  color-scheme: light !important;
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+}
+
+/* แก้ไขสีที่มีปัญหา */
+.pdf-export-fix .text-gray-800 { color: #1f2937 !important; }
+.pdf-export-fix .text-gray-500 { color: #6b7280 !important; }
+.pdf-export-fix .text-gray-600 { color: #4b5563 !important; }
+.pdf-export-fix .bg-white { background-color: #ffffff !important; }
+.pdf-export-fix .bg-gray-50 { background-color: #f9fafb !important; }
+.pdf-export-fix .bg-gray-100 { background-color: #f3f4f6 !important; }
+.pdf-export-fix .border-gray-300 { border-color: #d1d5db !important; }

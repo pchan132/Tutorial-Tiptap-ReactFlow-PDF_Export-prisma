@@ -61,6 +61,59 @@ export default function TableNote() {
     console.log("No notes found!");
   }
 
+  // เพิ่มฟังก์ชัน handleExport
+  const handleExport = async (id: string, title: string) => {
+    try {
+      // ดึงข้อมูลโน๊ต
+      const response = await fetch(`/api/notes/${id}`);
+      const note = await response.json();
+
+      // เปิดหน้าต่างใหม่สำหรับ export
+      const newWindow = window.open(`/export/${id}`, "_blank");
+      if (!newWindow) {
+        alert("กรุณาอนุญาตให้เปิดป๊อปอัป");
+      }
+    } catch (error) {
+      console.error("Error preparing export:", error);
+      alert("เกิดข้อผิดพลาดในการเตรียมข้อมูล");
+    }
+  };
+
+  // เพิ่มฟังก์ชันลบ
+  const handleDelete = async (id: string) => {
+    if (!confirm("คุณแน่ใจหรือไม่ที่จะลบ Note นี้?")) {
+      return;
+    }
+
+    try {
+      const response = await fetch(`/api/notes/${id}`, {
+        method: "DELETE",
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to delete note");
+      }
+
+      alert("ลบ Note เรียบร้อยแล้ว!");
+      // โหลดข้อมูลใหม่
+      const fetchNotes = async () => {
+        try {
+          console.log("Fetching notes from API...");
+          const response = await fetch("/api/notes");
+          const data = await response.json();
+          console.log("API Response:", data);
+          setNotes(data);
+        } catch (error) {
+          console.error("Error fetching notes:", error);
+        }
+      };
+      fetchNotes();
+    } catch (error) {
+      console.error("Error deleting note:", error);
+      alert("เกิดข้อผิดพลาดในการลบ กรุณาลองใหม่");
+    }
+  };
+
   return (
     <table className="min-w-full border border-gray-300 ">
       <thead>
@@ -81,6 +134,14 @@ export default function TableNote() {
               {new Date(note.createdAt).toLocaleTimeString("th-TH")}
             </td>
             <td className="flex justify-center gap-2">
+              {/* // เพิ่มปุ่มในส่วนของ <td className="flex justify-center gap-2"> */}
+              <button
+                onClick={() => handleExport(note.id, note.title)}
+                className="bg-purple-500 text-white px-4 py-2 rounded m-2 cursor-pointer hover:bg-purple-600"
+              >
+                📄 PDF
+              </button>
+
               <button
                 onClick={() => {
                   console.log("Button clicked for note:", note);
@@ -90,7 +151,10 @@ export default function TableNote() {
               >
                 แก้ไข
               </button>
-              <button className="bg-red-500 text-white px-4 py-2 rounded m-2 cursor-pointer hover:bg-red-600">
+              <button
+                onClick={() => handleDelete(note.id)}
+                className="bg-red-500 text-white px-4 py-2 rounded m-2 cursor-pointer hover:bg-red-600"
+              >
                 ลบ
               </button>
             </td>

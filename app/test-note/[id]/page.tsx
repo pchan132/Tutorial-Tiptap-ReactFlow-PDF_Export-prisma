@@ -5,6 +5,8 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { useRouter } from "next/navigation";
 
+import PDFPreview from "@/components/PDFPreview";
+
 interface TypeNote {
   title: string;
   content: any; // tiptap ส่ง JSON object กลับมา ใช้ any ไปก่อนก็ได้
@@ -145,7 +147,6 @@ export default function EditNotePage({
             </button>
           </div>
         </div>
-
         <form onSubmit={handleSubmit}>
           {/* Title Input */}
           <div className="mb-4">
@@ -189,7 +190,12 @@ export default function EditNotePage({
             </Link>
           </div>
         </form>
-
+        {/* // เพิ่มในส่วนของ return หลังจาก form */}
+        <PDFPreview
+          title={note.title}
+          content={note.content}
+          onExport={() => console.log("PDF exported successfully")}
+        />
         {/* Debug Section - แสดงข้อมูลสำหรับการตรวจสอบ */}
         <div className="mt-6">
           <details className="bg-gray-100 p-4 rounded">
