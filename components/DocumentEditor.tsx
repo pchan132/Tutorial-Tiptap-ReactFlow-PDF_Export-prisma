@@ -610,7 +610,7 @@ export default function DocumentEditor({
       {/* Editor Content */}
       <div className="flex-1 p-4 overflow-auto bg-white">
         <div className="max-w-4xl mx-auto min-h-[800px] border border-gray-300 rounded shadow-sm p-6 bg-white">
-          <EditorContent editor={editor} />
+          <EditorContent editor={editor} className="editor-content bg-white text-black" />
         </div>
       </div>
     </div>

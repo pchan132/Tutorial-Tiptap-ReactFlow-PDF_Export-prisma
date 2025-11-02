@@ -130,7 +130,7 @@
   min-height: 700px;
   line-height: 1.6;
   font-size: 16px;
-  color: #333;
+  color: #000000;
 }
 
 /* Paragraph styles */
@@ -179,7 +179,7 @@
   border-left: 4px solid #ddd;
   padding-left: 1em;
   margin: 1em 0;
-  color: #666;
+  color: #000000;
   font-style: italic;
 }
 
@@ -413,12 +413,12 @@
 /* Dark mode support */
 @media (prefers-color-scheme: dark) {
   .ProseMirror {
-    color: #e1e1e1;
-    background-color: #1a1a1a;
+    color: #000000;
+    background-color: #ffffff;
   }
 
   .ProseMirror blockquote {
-    color: #b3b3b3;
+    color: #000000;
     border-left-color: #555;
   }
 
