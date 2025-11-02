@@ -9,6 +9,27 @@ export const initialEdges: Edge[] = [
     type: "CustomEdge",
     animated: true,
   },
+  {
+    id: "e1-3",
+    source: "1",
+    target: "3",
+    type: "CustomEdge",
+    animated: true,
+  },
+  {
+    id: "e2-4",
+    source: "2",
+    target: "4",
+    type: "CustomEdge",
+    animated: true,
+  },
+  {
+    id: "e3-5",
+    source: "3",
+    target: "5",
+    type: "CustomEdge",
+    animated: true,
+  },
 ];
 
 export const initialNodes: Node[] = [

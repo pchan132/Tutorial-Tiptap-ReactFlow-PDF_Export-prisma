@@ -39,6 +39,11 @@ const edgeTypes = {
 export default function Workflow() {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
+
+  const onConnect = (connection: Connection) => {
+    setEdges((eds) => addEdge({ ...connection, animated: true }, eds));
+  };
+
   return (
     <div style={{ width: "100%", height: "100vh" }}>
       {/* หน้าจอเต็ม */}
@@ -49,6 +54,7 @@ export default function Workflow() {
         onNodesChange={onNodesChange}
         onEdgesChange={onEdgesChange}
         nodeTypes={nodeTypes}
+        onConnect={onConnect}
         edgeTypes={edgeTypes}
         fitView
       >

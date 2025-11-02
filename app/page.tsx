@@ -18,6 +18,15 @@ export default function Home() {
       <Link href="/flowCourse" className="p-4 bg-blue-500 max-w-2xl text-white">
         Flow Chart Course
       </Link>
+      <Link href="/flowCourse" className="p-4 bg-blue-500 max-w-2xl text-white">
+        Flow Chart Course
+      </Link>
+      <Link
+        href="/flowElectric"
+        className="p-4 bg-red-500 max-w-2xl text-white"
+      >
+        Flow Chart Electric
+      </Link>
     </div>
   );
 }
