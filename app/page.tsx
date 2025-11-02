@@ -9,6 +9,15 @@ export default function Home() {
       <Link href="/notelist" className="p-4 bg-gray-900 max-w-2xl text-white">
         Notes List
       </Link>
+      <Link
+        href="/flowchart"
+        className="p-4 bg-orange-500 max-w-2xl text-white"
+      >
+        Flow Chart test
+      </Link>
+      <Link href="/flowCourse" className="p-4 bg-blue-500 max-w-2xl text-white">
+        Flow Chart Course
+      </Link>
     </div>
   );
 }

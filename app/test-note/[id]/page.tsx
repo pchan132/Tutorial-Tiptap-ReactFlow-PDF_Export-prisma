@@ -131,7 +131,7 @@ export default function EditNotePage({
           <h1 className="text-xl font-bold">✏️ แก้ไข Note</h1>
           <div className="flex gap-2">
             <Link
-              href="/test-note"
+              href="/notelist"
               className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded hover:bg-gray-50"
             >
               <ArrowLeft size={16} />
