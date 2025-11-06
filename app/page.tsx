@@ -38,6 +38,12 @@ export default function Home() {
       >
         Flow Chart Electric
       </Link>
+      <Link
+        href="/mermaid"
+        className="p-4 bg-green-500 max-w-2xl text-white"
+      >
+        Mermaid Diagram
+      </Link>
     </div>
   );
 }
